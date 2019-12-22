@@ -1,17 +1,8 @@
-var input = document.getElementById('input');
-var button = document.getElementById('btn');
-var cityList = document.getElementById('cityList');
+console.log(window.location);
 
-button.addEventListener('click', function() {
-  var cityName = input.value;
+var buttonRefs = document.getElementsByTagName('button');
 
-  if (cityName.length > 0) {
-    for (let index = 0; index < cityList.children.length; index++) {
-      if (cityList.children[index].innerText === cityName) {
-        cityList.removeChild(cityList.children[index]);
-      }
-    }
-  } else {
-    alert('City is empty!');
-  }
+buttonRefs[0].addEventListener('click', function() {
+  // window.location.href = 'http://google.co.in';  //  This too works
+  window.location.assign('http://google.co.in');
 });
