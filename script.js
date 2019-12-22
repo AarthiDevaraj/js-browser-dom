@@ -1,28 +1,16 @@
-//  reference to the body
-var page = document.getElementsByTagName('body'); //  collection
-console.log('Page (collection)', page);
+var input = document.getElementById('input');
+var button = document.getElementById('btn');
+var cityList = document.getElementById('cityList');
 
-//  reference to the div
-var divRef = page[0].firstElementChild;
-console.log('div', divRef);
+button.addEventListener('click', function() {
+  var cityName = input.value;
 
-//  reference to h1
-var h1Ref = divRef.firstElementChild;
-console.log('h1', h1Ref);
-
-//  reference to the ul
-var ulRef = h1Ref.nextElementSibling;
-console.log('ul', ulRef);
-
-//  reference to collection of li
-var liCollection = ulRef.children;
-console.log('li collection', liCollection);
-
-//  reference to button
-var buttonRef = ulRef.nextElementSibling;
-console.log('Button', buttonRef);
-
-//  adding click handler to button
-buttonRef.addEventListener('click', function(e) {
-  alert('Button click handled!');
+  if (cityName.length > 0) {
+    var newLi = document.createElement('li'); //  create in memory element (blank li is created)
+    var newTextNode = document.createTextNode(cityName); //  create the text node for this new li
+    newLi.appendChild(newTextNode); //  add text to new li
+    cityList.appendChild(newLi); //  append new li to ul
+  } else {
+    alert('City is empty! Cannot add!');
+  }
 });
