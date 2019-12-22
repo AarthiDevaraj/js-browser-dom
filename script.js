@@ -6,11 +6,12 @@ button.addEventListener('click', function() {
   var cityName = input.value;
 
   if (cityName.length > 0) {
-    var newLi = document.createElement('li'); //  create in memory element (blank li is created)
-    var newTextNode = document.createTextNode(cityName); //  create the text node for this new li
-    newLi.appendChild(newTextNode); //  add text to new li
-    cityList.appendChild(newLi); //  append new li to ul
+    for (let index = 0; index < cityList.children.length; index++) {
+      if (cityList.children[index].innerText === cityName) {
+        cityList.removeChild(cityList.children[index]);
+      }
+    }
   } else {
-    alert('City is empty! Cannot add!');
+    alert('City is empty!');
   }
 });
