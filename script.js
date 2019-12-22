@@ -1,8 +1,11 @@
-console.log(window.location);
+console.log(window.history);
 
-var buttonRefs = document.getElementsByTagName('button');
+document.getElementById('back').addEventListener('click', function() {
+  alert('We are going back!');
+  window.history.back();
+});
 
-buttonRefs[0].addEventListener('click', function() {
-  // window.location.href = 'http://google.co.in';  //  This too works
-  window.location.assign('http://google.co.in');
+document.getElementById('forward').addEventListener('click', function() {
+  alert('We are going forward!');
+  window.history.forward();
 });
