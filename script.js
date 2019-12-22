@@ -1,19 +1,28 @@
-//  DOM events: https://developer.mozilla.org/en-US/docs/Web/Events
+//  reference to the body
+var page = document.getElementsByTagName('body'); //  collection
+console.log('Page (collection)', page);
 
-//  simple property assignment
-//  only one listener is possible
-var buttonProperty = document.getElementById('btn-property'); //  get the reference to the button
-buttonProperty.onclick = function(e) {
-  console.log('Property Button Click handler', e);
-};
+//  reference to the div
+var divRef = page[0].firstElementChild;
+console.log('div', divRef);
 
-//  Other style: adding the event listener
-//  multiple listeners are possible
-var buttonListener = document.getElementById('btn-listener'); //  get the reference to the button
-buttonListener.addEventListener('click', function(e) {
-  console.log('Listener Button Click handler 1', e);
-});
+//  reference to h1
+var h1Ref = divRef.firstElementChild;
+console.log('h1', h1Ref);
 
-buttonListener.addEventListener('click', function(e) {
-  console.log('Listener Button Click handler 2', e);
+//  reference to the ul
+var ulRef = h1Ref.nextElementSibling;
+console.log('ul', ulRef);
+
+//  reference to collection of li
+var liCollection = ulRef.children;
+console.log('li collection', liCollection);
+
+//  reference to button
+var buttonRef = ulRef.nextElementSibling;
+console.log('Button', buttonRef);
+
+//  adding click handler to button
+buttonRef.addEventListener('click', function(e) {
+  alert('Button click handled!');
 });
