@@ -1,11 +1,3 @@
-console.log(window.history);
+console.log(window.navigator);
 
-document.getElementById('back').addEventListener('click', function() {
-  alert('We are going back!');
-  window.history.back();
-});
-
-document.getElementById('forward').addEventListener('click', function() {
-  alert('We are going forward!');
-  window.history.forward();
-});
+//  Please take a look here: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorID/appName
