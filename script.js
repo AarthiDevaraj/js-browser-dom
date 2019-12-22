@@ -1,8 +1,16 @@
 var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos');
+var data = {
+  name: 'ABCD',
+  city: 'New Delhi',
+  country: 'India'
+};
 
-xhr.send();
+xhr.open('POST', 'https://jsonplaceholder.typicode.com/todos');
+xhr.setRequestHeader('X-Auth-A', 'Auth A Value');
+xhr.setRequestHeader('X-Auth-B', 'Auth B Value');
+xhr.setRequestHeader('X-Custom-A', 'Custom A Value');
+xhr.send(data);
 
 xhr.onload = function() {
   if (xhr.status != 200) {
